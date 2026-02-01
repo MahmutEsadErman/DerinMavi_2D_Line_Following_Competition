@@ -55,6 +55,7 @@ def solution(image, current_speed, current_steering):
 
         # P Controller
         kp = 0.1
+        kd = 0
 
         derivative = error - solution.last_error
         solution.last_error = error
