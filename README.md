@@ -28,26 +28,10 @@ pip install pygame numpy opencv-python
     - Ana repodaki `README.md` dosyası güncellenir ve isminiz Liderlik Tablosuna eklenir.
 4. Eğer başarısız olursa, hatayı PR yorumlarında görebilirsiniz.
 
-## 📁 Dosya Yapısı
-
-├── solution.py          # 👈 SADECE BU DOSYAYI DÜZENLEYİN
-├── main.py              # Görsel simülatör (değiştirmeyin)
-├── track.png            # Yarış pisti
-├── racing_car.png       # Robot görseli
-└── README.md 
-
 
 ## Önemli Notlar
 - Çözümünüz **5 dk** içinde turu tamamlamalıdır, aksi halde timeout olur.
 - Robot pistten çıkarsa veya takılırsa değerlendirme başarısız olur.
-
-## 🏆 Leaderboard
-
-| User | Time | Date |
-|---|---|---|
-
-
-
 
 
 ## Leaderboard
