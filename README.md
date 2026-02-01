@@ -4,11 +4,13 @@ Derin Mavi Robotik Takımı'nın çizgi izleme yarışmasına hoş geldiniz! Bu 
 
 ## Yarışma Kuralları
 
-1. **Bu repoyu forklayın** - Kendi GitHub hesabınıza kopyalayın
-2. **`solution.py` dosyasını düzenleyin** - Algoritmanızı geliştirin
-3. **Test edin** - Lokal ortamda `python main.py` ile test edin
-4. **Push yapın** - Çözümünüzü commit ve push edin
-5. Otomatik değerlendirme yapılır ve sonuçlar leaderboard'a eklenir!
+1. **Bu repoyu forklayın** - Sağ üstteki `Fork` butonuna tıklayarak kendi hesabınıza alın.
+2. **Klonlayın** - Forkladığınız repoyu bilgisayarınıza indirin.
+3. **`solution.py` dosyasını düzenleyin** - Algoritmanızı geliştirin.
+4. **Test edin** - Lokal ortamda `python main.py` ile test edin.
+5. **Push yapın** - Çözümünüzü kendi forkunuza gönderin.
+6. **Pull Request (PR) Açın** - GitHub arayüzünden orijinal repoya (bu repoya) bir Pull Request açın.
+7. **Sonuçları Bekleyin** - PR açıldığında otomatik hakem botu kodunuzu değerlendirecek ve sonucu yorum olarak yazacaktır. Başarılı olursanız isminiz ve süreniz ana repodaki Liderlik Tablosuna eklenecektir!
 
 ## Gereksinimler
 - Python 3.x
@@ -19,10 +21,12 @@ pip install pygame numpy opencv-python
 
 ## Otomatik Değerlendirme Süreci
 
-1. `solution.py` dosyasını değiştirip push yaptığınızda GitHub Actions otomatik olarak tetiklenir
-2. Çözümünüz headless modda test edilir
-3. Başarılı olursanız süreniz leaderboard'a eklenir
-4. En iyi süreniz kaydedilir
+1. Siz bir **Pull Request** açtığınızda GitHub Actions tetiklenir.
+2. Kodunuz güvenli bir ortamda çalıştırılır ve pisti tamamlama süreniz ölçülür.
+3. Eğer robotunuz pisti başarıyla tamamlarsa:
+    - Bot, PR'ınıza yorum yaparak sürenizi bildirir.
+    - Ana repodaki `README.md` dosyası güncellenir ve isminiz Liderlik Tablosuna eklenir.
+4. Eğer başarısız olursa, hatayı PR yorumlarında görebilirsiniz.
 
 ## 📁 Dosya Yapısı
 
@@ -30,14 +34,17 @@ pip install pygame numpy opencv-python
 ├── main.py              # Görsel simülatör (değiştirmeyin)
 ├── track.png            # Yarış pisti
 ├── racing_car.png       # Robot görseli
-├── update_leaderboard.py # Leaderboard güncelleyici
 └── README.md 
 
 
 ## Önemli Notlar
-
-- **Sadece `solution.py` dosyasını düzenleyin!** Diğer dosyaları değiştirmeniz durumunda değerlendirme başarısız olabilir.
 - Çözümünüz **5 dk** içinde turu tamamlamalıdır, aksi halde timeout olur.
 - Robot pistten çıkarsa veya takılırsa değerlendirme başarısız olur.
+
+## 🏆 Leaderboard
+
+| User | Time | Date |
+|---|---|---|
+
 
 
