@@ -44,7 +44,7 @@ def solution(image, current_speed, current_steering):
     M = cv2.moments(thresh)
 
     # Default safe values
-    target_speed = 5
+    target_speed = 2
     steering = 0.0
 
     if M["m00"] > 0:
@@ -64,7 +64,7 @@ def solution(image, current_speed, current_steering):
 
         cv2.drawMarker(image, (cx, cy), (255, 0, 0), cv2.MARKER_CROSS, 5, 1)
         cv2.line(image, (cx, cy), (32, 32), (0, 0, 255), 1)
-        print("error", error, "cx", cx, "cy", cy)
-        print("steering", steering)
+        # print("error", error, "cx", cx, "cy", cy)
+        # print("steering", steering)
 
     return target_speed, steering
