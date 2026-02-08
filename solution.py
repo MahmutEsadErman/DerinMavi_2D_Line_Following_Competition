@@ -1,6 +1,4 @@
 import cv2
-import numpy as np
-import math
 
 def solution(image, current_speed, current_steering):
 
@@ -31,5 +29,4 @@ def solution(image, current_speed, current_steering):
     #   x deger toplami/hepsi = x kutle merkezini verir. merkeze uzakligi sapma degerini verir.
     #   32x0.03=0.96 , -1<steering<1 arasina getirilir.
     #   yol gorunmuyorsa son durumunu korur.
-    #
     # ============================================
