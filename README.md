@@ -35,5 +35,5 @@ pip install pygame numpy opencv-python
 
 
 ## Leaderboard
-| User | Time | Date |
-|---|---|---|
+| Rank | User | Time | Date |
+|---|---|---|---|
