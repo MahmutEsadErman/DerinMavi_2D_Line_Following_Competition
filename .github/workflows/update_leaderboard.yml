@@ -25,6 +25,8 @@ jobs:
           
       - name: Read Artifacts
         id: read
+        env:
+          PR_BASE_BRANCH: ${{ github.event.workflow_run.pull_requests[0].base.ref }}
         run: |
           SCORE=$(cat artifacts/score.txt)
           USER=$(cat artifacts/user.txt)
@@ -32,8 +34,12 @@ jobs:
           
           if [ -f artifacts/branch.txt ]; then
             BRANCH=$(cat artifacts/branch.txt)
+            echo "Branch from artifact: $BRANCH"
+          elif [ -n "$PR_BASE_BRANCH" ] && [ "$PR_BASE_BRANCH" != "null" ]; then
+            BRANCH="$PR_BASE_BRANCH"
+            echo "Branch from PR context: $BRANCH"
           else
-            echo "Warning: artifacts/branch.txt not found. This might be an old workflow run."
+            echo "Warning: Could not determine branch. Defaulting to main."
             BRANCH="main"
           fi
           
