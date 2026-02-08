@@ -37,5 +37,3 @@ pip install pygame numpy opencv-python
 ## Leaderboard
 | Rank | User | Time | Date |
 |---|---|---|---|
-| 🥇 1 | fatihemrekara | 3.0333s | 2026-02-08 10:29 |
-| 🥈 2 | MahmutEsadErman | 6.3667s | 2026-02-01 13:54 |

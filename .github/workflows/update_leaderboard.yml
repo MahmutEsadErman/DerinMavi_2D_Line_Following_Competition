@@ -15,9 +15,6 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Checkout main repo
-        uses: actions/checkout@v4
-
       - name: Download Artifacts
         uses: actions/download-artifact@v4
         with:
@@ -28,13 +25,35 @@ jobs:
           
       - name: Read Artifacts
         id: read
+        env:
+          PR_BASE_BRANCH: ${{ github.event.workflow_run.pull_requests[0].base.ref }}
         run: |
           SCORE=$(cat artifacts/score.txt)
           USER=$(cat artifacts/user.txt)
           PR_URL=$(cat artifacts/pr_url.txt)
+          
+          if [ -f artifacts/branch.txt ]; then
+            BRANCH=$(cat artifacts/branch.txt)
+            echo "Branch from artifact: $BRANCH"
+          elif [ -n "$PR_BASE_BRANCH" ] && [ "$PR_BASE_BRANCH" != "null" ]; then
+            BRANCH="$PR_BASE_BRANCH"
+            echo "Branch from PR context: $BRANCH"
+          else
+            echo "Warning: Could not determine branch. Defaulting to main."
+            BRANCH="main"
+          fi
+          
           echo "score=$SCORE" >> $GITHUB_OUTPUT
           echo "user=$USER" >> $GITHUB_OUTPUT
           echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+
+      - name: Checkout Target Branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.read.outputs.branch }}
+          repository: ${{ github.repository }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update Leaderboard File
         run: |
@@ -49,5 +68,5 @@ jobs:
             echo "No changes to leaderboard"
           else
             git commit -m "Update Leaderboard: ${{ steps.read.outputs.user }} - ${{ steps.read.outputs.score }}s"
-            git push
+            git push origin HEAD:${{ steps.read.outputs.branch }}
           fi
