@@ -53,10 +53,6 @@ def solution(image, current_speed, current_steering):
 
     else: steering = 0
 
-    
-
-    print(steering)
-
 
     if abs(steering)>0.7:
          
