@@ -44,10 +44,10 @@ def solution(image, current_speed, current_steering):
     ters_cam = 255- cam
 
     yol = cv2.moments(ters_cam)
-    
+
 
     if yol["m00"] != 0:
-        
+     
      yol_merkezi_x = yol["m10"]/yol["m00"]
 
      steering = (yol_merkezi_x - width/2) / (width/2)
