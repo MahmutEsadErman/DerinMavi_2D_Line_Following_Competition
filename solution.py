@@ -28,29 +28,4 @@ def solution(image, current_speed, current_steering):
     steering = current_steering * 0.92
     target_speed = max(current_speed * 0.9, 4.0)
 
-    if found:
-        steering = error_sum / weight_sum
-        steering = np.clip(steering, -1.0, 1.0)
-        abs_s = abs(steering)
-
-        if abs_s < 0.08:
-            target_speed = 9.0
-        elif abs_s < 0.18:
-            target_speed = 8.0
-        elif abs_s < 0.30:
-            target_speed = 6.5
-        elif abs_s < 0.45:
-            target_speed = 5.0
-        else:
-            target_speed = 4.0
-
-        if abs_s > 0.15:
-            steering *= 1.18
-
-        if abs_s > 0.55:
-            steering *= 0.88
-            target_speed = min(target_speed, 4.0)
-
-        steering = np.clip(steering, -1.0, 1.0)
-
     return target_speed, steering
