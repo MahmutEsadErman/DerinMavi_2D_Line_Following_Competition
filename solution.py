@@ -28,7 +28,8 @@ def solution(image, current_speed, current_steering):
 
         steering: Robotun hedef direksiyon açısı (float, -1 ile 1 arası)
     """
-    
+    target_speed=20.0
+    steering=-1.0
     # ============================================
     # ÇÖZÜMÜNÜZÜ BURAYA YAZIN
     # ============================================
