@@ -33,4 +33,33 @@ def solution(image, current_speed, current_steering):
     # ÇÖZÜMÜNÜZÜ BURAYA YAZIN
     # ============================================
     
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+
+
+    cam = gray[ 10: 64,:]
+
+    ters_cam = 255- cam
+
+    yol = cv2.moments(ters_cam)
+
+
+
+
+    if yol["m00"] != 0:
+     
+
+     yol_merkezi_x = yol["m10"]/yol["m00"]
+
+     steering = (yol_merkezi_x - 32) / 32
+
+    else: 
+     steering = 1
+     target_speed= 1
+
+
+    target_speed = 15-(steering)*14
+
+  
+
     return target_speed, steering
