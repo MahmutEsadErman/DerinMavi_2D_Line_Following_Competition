@@ -164,7 +164,7 @@ class Car:
         M[0, 2] += (patch_size[0] / 2) - cx
         M[1, 2] += (patch_size[1] / 2) - cy
 
-        sensor_view = cv2.warpAffine(cv_track_img, M, patch_size)
+        sensor_view = cv2.warpAffine(cv_track_img, M, patch_size, borderMode=cv2.BORDER_CONSTANT, borderValue=(255, 255, 255))
         return sensor_view
 
 
