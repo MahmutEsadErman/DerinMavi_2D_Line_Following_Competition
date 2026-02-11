@@ -9,7 +9,7 @@ Başarılar!
 
 import cv2
 import numpy as np
-
+import time
 
 def solution(image, current_speed, current_steering):
     """  
@@ -32,5 +32,45 @@ def solution(image, current_speed, current_steering):
     # ============================================
     # ÇÖZÜMÜNÜZÜ BURAYA YAZIN
     # ============================================
+     
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+
+
+    cam = gray[ 10: 64,:]
+
+    ters_cam = 255- cam
+
+    yol = cv2.moments(ters_cam)
+
+
+
+
+    if int(yol["m00"]) != 0:
+     
+
+     yol_merkezi_x = yol["m10"]/yol["m00"]
+
+     steering = (yol_merkezi_x - 32) / 32
+
+    else: 
+     steering = -1
+
+
+    red = [0, 0, 255]
+    error = np.all(image == red, axis=-1)
+
+    while np.any(error):
+     
+     steering = 1
+     target_speed = 25    
+
+     break
+
     
+    
+    target_speed = 25-(steering)*15
+
+  
+
     return target_speed, steering
