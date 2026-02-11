@@ -20,7 +20,8 @@ def solution(image, current_speed, current_steering):
     else: 
         steering = current_steering
     speed = 10
-    target_speed = speed* (1.0 - steering)
+    target_speed = speed* (1.0 - steering*0.9)
     steering = np.clip(steering, -1.0, 1.0)
 
     return target_speed, steering
+
