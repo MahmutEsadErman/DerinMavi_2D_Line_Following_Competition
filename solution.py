@@ -34,15 +34,15 @@ def solution(image, current_speed, current_steering):
         abs_s = abs(steering)
 
         if abs_s < 0.08:
-            target_speed = 13.5
+            target_speed = 9.0
         elif abs_s < 0.18:
-            target_speed = 11.0
+            target_speed = 8.0
         elif abs_s < 0.30:
-            target_speed = 8.8
-        elif abs_s < 0.45:
             target_speed = 6.5
+        elif abs_s < 0.45:
+            target_speed = 5.0
         else:
-            target_speed = 4.5
+            target_speed = 4.0
 
         if abs_s > 0.15:
             steering *= 1.18
