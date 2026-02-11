@@ -60,6 +60,6 @@ def solution(image, current_speed, current_steering):
 
     target_speed = 15-(steering)*14
 
-    print(yol["m00"])
+  
 
     return target_speed, steering
