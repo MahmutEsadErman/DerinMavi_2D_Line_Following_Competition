@@ -37,7 +37,7 @@ def solution(image, current_speed, current_steering):
 
 
 
-    cam = gray[ 20: 64,:]
+    cam = gray[ 10: 64,:]
 
     ters_cam = 255- cam
 
@@ -58,8 +58,8 @@ def solution(image, current_speed, current_steering):
      target_speed= 1
 
 
-    target_speed = 10-(steering)*9
+    target_speed = 15-(steering)*14
 
-  
+    print(yol["m00"])
 
     return target_speed, steering
